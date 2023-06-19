@@ -50,6 +50,6 @@ Access the server by opening a web browser and navigating to http://localhost:<p
 ### License
 This project is licensed under the MIT License.
 
-## Created By
+### Created By
 This project was created by Dikla as part of Full Stack Development course.
 
