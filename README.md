@@ -2,7 +2,7 @@
 
 ### Description
 This project is a Node.js server developed for an internet application that includes a content management system (CMS). The server provides a platform for business users to publish, edit, and delete content on their website. 
-The project repository can be found at https://github.com/your-repository-link.
+The project repository can be found at https://github.com/DiklaS/NodeJS-Project.git.
 
 ### Features
 Handles HTTP requests and responses.
