@@ -15,7 +15,7 @@ const checkIfBizOwner = async (iduser, idcard, res, next) => {
     if (cardData.user_id == iduser) {
       next();
     } else {
-      res.status(401).json({ msg: "you not the biz owner" });
+      res.status(401).json({ msg: "You are not the business owner" });
     }
   } catch (err) {
     res.status(400).json(err);
@@ -39,7 +39,7 @@ const permissionsMiddleware = (isBiz, isAdmin, isBizOwner) => {
     if (isAdmin === req.userData.isAdmin && isAdmin === true) {
       return next();
     }
-    if (isBizOwner === req.userData.isBusiness && isBizOwner === true) {
+    if ( isBizOwner === true) {
       return checkIfBizOwner(req.userData._id, req.params.id, res, next);
     }
     res.status(401).json({ message: "you do not have proper authorization" });

@@ -26,7 +26,6 @@ async (req, res) => {
     const cards = await cardsServiceModel.getMyCards({user_id: user._id});
     return res.send(cards);
   } catch (error) {
-    //console.log(chalk.redBright(error.message));
     return res.status(500).send(error.message);
   }
 });
@@ -43,29 +42,14 @@ router.get("/:id", async (req, res) => {
 });
 
 //4. CREATE NEW CARD
-/* router.post("/", authmw,
+router.post("/", authmw,
 permissionsMiddleware(true, false, false),
 async (req, res) => {
   try {
     await cardsValidationService.createCardValidation(req.body);
     let normalCard = await normalizeCard(req.body, req.userData._id);
-    const dataFromMongoose = await cardsServiceModel.createCard(normalCard);
-    console.log("dikla");
-    console.log("dataFromMongoose", dataFromMongoose);
-    res.json({ msg: "A new card 'was created" });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-}); */
-
-// biz only
-router.post("/", authmw, async (req, res) => {
-  try {
-    await cardsValidationService.createCardValidation(req.body);
-    let normalCard = await normalizeCard(req.body, req.userData._id);
-    const dataFromMongoose = await cardsServiceModel.createCard(normalCard);
-    console.log("dataFromMongoose", dataFromMongoose);
-    res.json(dataFromMongoose);
+    const newCard = await cardsServiceModel.createCard(normalCard);
+    res.json(newCard);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -135,7 +119,7 @@ router.delete(
       await cardsValidationService.cardIdValidation(req.params.id);
       const cardFromDB = await cardsServiceModel.deleteCard(req.params.id);
       if (cardFromDB) {
-        res.json({ msg: "card deleted" });
+        res.json({ msg: "The card has been deleted" });
       } else {
         res.json({ msg: "could not find the card" });
       }

@@ -11,7 +11,7 @@ const permissionsMiddlewareUser = require("../../middleware/permissionsMiddlewar
 const _ = require("lodash");
 
 //1. REGISTER USER
-router.post("/register", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     //await usersValidationService.registerUserValidation(req.body);
     req.body.password = await hashService.generateHash(req.body.password);
@@ -102,7 +102,7 @@ async (req, res) => {
   try {
     let normalUser = await normalizeUser(req.body);
     await usersValidationService.userIdValidation(req.params.id);
-    await usersValidationService.registerUserValidation(normalUser);
+    await usersValidationService.editUserValidation(normalUser);
     const userFromDB = await usersServiceModel.updateUser(
       req.params.id,
       req.body
