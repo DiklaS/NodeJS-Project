@@ -47,9 +47,6 @@ To start the Node.js server in a development environment with additional feature
 The server will start running and listen for incoming requests on the specified port.
 Access the server by opening a web browser and navigating to http://localhost:<port>, where <port> is the configured port number.  
 
-### Contributing
-Contributions are welcome! If you have any ideas or improvements, feel free to submit a pull request.
-
 ### License
 This project is licensed under the MIT License.
 
