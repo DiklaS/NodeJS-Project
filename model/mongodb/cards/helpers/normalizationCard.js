@@ -15,8 +15,7 @@ const normalizeCard = async (card, userId) => {
   } 
   card.address = {
     ...card.address,
-    state: card.address.state || "not defined",
-    country: card.address.country
+    state: card.address.state || "not defined"
   };  
   return {
     ...card,

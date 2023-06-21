@@ -13,7 +13,7 @@ const _ = require("lodash");
 //1. REGISTER USER
 router.post("/", async (req, res) => {
   try {
-    //await usersValidationService.registerUserValidation(req.body);
+    await usersValidationService.registerUserValidation(req.body);
     req.body.password = await hashService.generateHash(req.body.password);
     req.body = normalizeUser(req.body);
     const newUser = await usersServiceModel.registerUser(req.body);
@@ -118,6 +118,7 @@ router.patch("/:id", authmw,
 permissionsMiddlewareUser(false, true),
 async (req, res) => {
   try {
+    await usersValidationService.userIdValidation(req.params.id);
     const loggedInUserId = req.userData._id; 
     if (req.params.id !== loggedInUserId) {
       return res.status(403).send("Unauthorized");
@@ -141,7 +142,7 @@ router.delete(
   permissionsMiddlewareUser(true, true),
   async (req, res) => {
     try {
-      //await cardsValidationService.cardIdValidation(req.params.id);
+      await usersValidationService.userIdValidation(req.params.id);
       const userFromDB = await usersServiceModel.deleteUser(req.params.id);
       if (userFromDB) {
         res.json({ msg: "user was deleted" });

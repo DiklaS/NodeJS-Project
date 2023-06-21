@@ -26,9 +26,7 @@ const initialData = async () => {
     user_id = user_id._id + "";
     for (let card of cardsData) {
       card = await normalizeCard(card, user_id);
-      console.log("Normalized card:", card);
       await cardsService.createCard(card);
-      console.log("Created card:", card);
     }
   } catch (err) {
     console.log("err from initial", err);
