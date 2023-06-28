@@ -45,7 +45,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use("/admin", express.static(path.join(__dirname, "admin")));
+//app.use("/admin", express.static(path.join(__dirname, "admin")));
 // app.use("/biz", express.static(path.join(__dirname, "biz")));
 // app.use("/regular", express.static(path.join(__dirname, "regular")));
 initialData();
