@@ -35,7 +35,11 @@ router.get("/:id", async (req, res) => {
   try {
     await cardsValidationService.cardIdValidation(req.params.id);
     const cardFromDB = await cardsServiceModel.getCardById(req.params.id);
-    res.json(cardFromDB);
+    if (!cardFromDB) {
+      res.status(403).send("could not find the card");
+    } else {
+      res.json(cardFromDB);
+    }
   } catch (err) {
     res.status(400).json(err);
   }
@@ -73,27 +77,15 @@ async (req, res) => {
   }
 });
 
-/* // admin or biz owner
-router.put("/:id", async (req, res) => {
-  try {
-    //! joi validation
-    //! normalize
-    const cardFromDB = await cardsServiceModel.updateCard(
-      req.params.id,
-      req.body
-    );
-    res.json(cardFromDB);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-}); */
-
 //6. LIKE CARD
 router.patch("/:id", authmw, async (req, res) => {
   try {
     await cardsValidationService.cardIdValidation(req.params.id);
     let card = await cardsServiceModel.getCardById(req.params.id);
     const user = req.userData;
+    if (!card) {
+      return res.status(403).send("could not find the card");
+    }
     const cardLike = card.likes.find((id) => id === user._id);
 
     if (!cardLike) {
@@ -118,10 +110,10 @@ router.delete(
     try {
       await cardsValidationService.cardIdValidation(req.params.id);
       const cardFromDB = await cardsServiceModel.deleteCard(req.params.id);
-      if (cardFromDB) {
-        res.json({ msg: "The card has been deleted" });
+      if (!cardFromDB) {
+        res.status(403).json({ msg: "could not find the card" });
       } else {
-        res.json({ msg: "could not find the card" });
+        res.json({ msg: "The card has been deleted" });
       }
     } catch (err) {
       res.status(400).json(err);

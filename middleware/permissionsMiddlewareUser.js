@@ -37,7 +37,7 @@ const permissionsMiddlewareUser = (isAdmin, isRegistered) => {
     }
 
     if (isAdmin && req.userData.isAdmin) {
-      console.log('hello')
+      
       return next();
     }
 

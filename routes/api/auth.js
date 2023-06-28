@@ -89,7 +89,11 @@ async (req, res) => {
   try {
     await usersValidationService.userIdValidation(req.params.id);
     const userFromDB = await usersServiceModel.getUserById(req.params.id);
-    res.json(userFromDB);
+    if (!userFromDB) {
+      res.status(404).json("User not found");
+    } else {
+      res.json(userFromDB);
+    }  
   } catch (err) {
     res.status(400).json(err);
   }
@@ -147,7 +151,7 @@ router.delete(
       if (userFromDB) {
         res.json({ msg: "user was deleted" });
       } else {
-        res.json({ msg: "could not find the user" });
+        res.status(404).json({ msg: "could not find the user" });
       }
     } catch (err) {
       res.status(400).json(err);

@@ -10,11 +10,11 @@ const getUserByEmail = (email) => {
 };
 
 const getAllUsers = () => {
-  return User.find();
+  return User.find().select(["-password", "-createdAt", "-__v"]);
 };
 
 const getUserById = (id) => {
-  return User.findById(id);
+  return User.findById(id).select(["-password", "-createdAt", "-__v"]);
 };
 
 const updateUser = (id, userToUpdate) => {
