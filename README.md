@@ -71,5 +71,5 @@ Access the server by opening a web browser and navigating to http://localhost:<p
 This project is licensed under the MIT License.
 
 ### Created By
-This project was created by Dikla as part of Full Stack Development course.
+This project was created by Dikla Shaked as part of Full Stack Development course.
 
