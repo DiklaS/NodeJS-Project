@@ -57,6 +57,15 @@ Access the server by opening a web browser and navigating to http://localhost:<p
 * Change business status: PATCH http://localhost:8181/api/users/:id (for the registered user)
 * Delete User: DELETE http://localhost:8181/api/users/:id (for the registered user or admin)
 
+#### Cards end points
+* Get all cards: GET http://localhost:8181/api/cards
+* Get my cards: GET http://localhost:8181/api/cards/my-cards (for the registered user)
+* Get Card: GET http://localhost:8181/api/cards/:id 
+* Create new card: POST http://localhost:8181/api/cards (for business users)
+* Edit Card: PUT http://localhost:8181/api/cards/:id (for the user who created the card)
+* Like Card: PATCH http://localhost:8181/api/cards/:id (for the the registered user)
+* Delete Card: DELETE http://localhost:8181/api/cards/:id (for the user who created the card or admin)
+* Change business number: PATCH http://localhost:8181/api/cards//bizNumber/:id (for admin)
 
 ### License
 This project is licensed under the MIT License.
