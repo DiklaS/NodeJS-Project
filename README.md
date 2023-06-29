@@ -49,13 +49,13 @@ Access the server by opening a web browser and navigating to http://localhost:<p
 
 ### Available Routes
 #### Users end points
-Register User: POST http://localhost:8181/api/users/
-Login: POST http://localhost:8181/api/users/login
-Get all users: GET http://localhost:8181/api/users/ (for admin users only)
-Get User: GET http://localhost:8181/api/users/:id (for the registered user or admin)
-Edit User: PUT http://localhost:8181/api/users/:id (for the registered user)
-Change business status: PATCH http://localhost:8181/api/users/:id (for the registered user)
-Delete User: DELETE http://localhost:8181/api/users/:id (for the registered user or admin)
+* Register User: POST http://localhost:8181/api/users/
+* Login: POST http://localhost:8181/api/users/login
+* Get all users: GET http://localhost:8181/api/users/ (for admin users only)
+* Get User: GET http://localhost:8181/api/users/:id (for the registered user or admin)
+* Edit User: PUT http://localhost:8181/api/users/:id (for the registered user)
+* Change business status: PATCH http://localhost:8181/api/users/:id (for the registered user)
+* Delete User: DELETE http://localhost:8181/api/users/:id (for the registered user or admin)
 
 
 ### License
