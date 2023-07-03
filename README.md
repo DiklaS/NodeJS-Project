@@ -49,17 +49,17 @@ Access the server by opening a web browser and navigating to http://localhost:<p
 
 ### Available Routes
 #### Users end points
-* Register User: POST http://localhost:8181/api/users/
+* Register User: POST http://localhost:8181/api/users/<br>
   request: {Name: {firstName, middleName(not required), lastName}, phone, email, password, image: {url(not required), alt(not required)}, address: {state(not       
   required), country, city, street, houseNumber, zip(not required), isAdmin(not required), isBusiness}
-* Login: POST http://localhost:8181/api/users/login
+* Login: POST http://localhost:8181/api/users/login <br>
   request: {email, password}
 * Get all users: GET http://localhost:8181/api/users/
   for admin users only, You will need to provide a token to get an answer from this api
 * Get User: GET http://localhost:8181/api/users/:id
   for the registered user or admin, You will need to provide a token to get an answer from this api
 * Edit User: PUT http://localhost:8181/api/users/:id
-  for the registered user, You need to provide a token to get an answer from this api
+  for the registered user, You need to provide a token to get an answer from this api <br>
   request: {Name: {firstName, middleName(not required), lastName}, phone, email, image: {url(not required), alt(not required)}, address: {state(not       
   required), country, city, street, houseNumber, zip(not required), isAdmin(not required), isBusiness}
 * Change business status: PATCH http://localhost:8181/api/users/:id
@@ -71,10 +71,10 @@ Access the server by opening a web browser and navigating to http://localhost:<p
 * Get all cards: GET http://localhost:8181/api/cards
 * Get my cards: GET http://localhost:8181/api/cards/my-cards for the registered user, You will need to provide a token to get an answer from this api
 * Get Card: GET http://localhost:8181/api/cards/:id 
-* Create new card: POST http://localhost:8181/api/cards for business users, You will need to provide a token to get an answer from this api
+* Create new card: POST http://localhost:8181/api/cards for business users, You will need to provide a token to get an answer from this api<br>
   request: {title, subTitle, description, phone, email, web, image: {url(not required), alt(not required)}, address: {state(not       
   required), country, city, street, houseNumber, zip(not required), user_id}
-* Edit Card: PUT http://localhost:8181/api/cards/:id for the user who created the card, You will need to provide a token to get an answer from this api
+* Edit Card: PUT http://localhost:8181/api/cards/:id for the user who created the card, You will need to provide a token to get an answer from this api<br>
   request: {title, subTitle, description, phone, email, web, image: {url(not required), alt(not required)}, address: {state(not       
   required), country, city, street, houseNumber, zip(not required), user_id}
 * Like Card: PATCH http://localhost:8181/api/cards/:id for the the registered user, You will need to provide a token to get an answer from this api
