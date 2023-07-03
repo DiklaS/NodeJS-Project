@@ -50,12 +50,22 @@ Access the server by opening a web browser and navigating to http://localhost:<p
 ### Available Routes
 #### Users end points
 * Register User: POST http://localhost:8181/api/users/
+  request: {Name: {firstName, middleName(not required), lastName}, phone, email, password, image: {url(not required), alt(not required)}, address: {state(not       
+  required), country, city, street, houseNumber, zip(not required), isAdmin(not required), isBusiness}
 * Login: POST http://localhost:8181/api/users/login
-* Get all users: GET http://localhost:8181/api/users/ (for admin users only)
-* Get User: GET http://localhost:8181/api/users/:id (for the registered user or admin)
-* Edit User: PUT http://localhost:8181/api/users/:id (for the registered user)
-* Change business status: PATCH http://localhost:8181/api/users/:id (for the registered user)
-* Delete User: DELETE http://localhost:8181/api/users/:id (for the registered user or admin)
+  request: {email, password}
+* Get all users: GET http://localhost:8181/api/users/
+  for admin users only, You will need to provide a token to get an answer from this api
+* Get User: GET http://localhost:8181/api/users/:id
+  for the registered user or admin, You will need to provide a token to get an answer from this api
+* Edit User: PUT http://localhost:8181/api/users/:id
+  for the registered user, You need to provide a token to get an answer from this api
+  request: {Name: {firstName, middleName(not required), lastName}, phone, email, password, image: {url(not required), alt(not required)}, address: {state(not       
+  required), country, city, street, houseNumber, zip(not required), isAdmin(not required), isBusiness}
+* Change business status: PATCH http://localhost:8181/api/users/:id
+  for the registered user, You will need to provide a token to get an answer from this api
+* Delete User: DELETE http://localhost:8181/api/users/:id
+  for the registered user or admin, You will need to provide a token to get an answer from this api
 
 #### Cards end points
 * Get all cards: GET http://localhost:8181/api/cards
