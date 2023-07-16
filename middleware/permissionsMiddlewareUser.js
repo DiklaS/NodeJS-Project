@@ -35,7 +35,7 @@ const permissionsMiddlewareUser = (isAdmin, isRegistered) => {
     if (!req.userData) {
       throw new CustomError("Must provide userData");
     }
-
+    console.log('isAdmin', req.userData.isAdmin)
     if (isAdmin && req.userData.isAdmin) {
       
       return next();

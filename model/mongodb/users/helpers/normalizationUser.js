@@ -12,7 +12,7 @@ const normalizeUser = (userData) => {
   userData.image = {
     url:
       userData.image.url ||
-      "https://cdn.pixabay.com/photo/2020/04/07/17/01/chicks-5014152_960_720.jpg",
+      "https://pixabay.com/vectors/bicycle-bike-cycling-drive-profile-2026559/",
     alt: userData.image.alt || "yellow fluffy chickens",
   };
   if (!userData.address) {

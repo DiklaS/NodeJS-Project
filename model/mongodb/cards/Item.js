@@ -1,15 +1,21 @@
 const mongoose = require("mongoose");
 const Image = require("./Image");
 const Address = require("./Address");
-const {
-  URL,
-  DEFAULT_STRING_SCHEMA_REQUIRED,
-} = require("./helpers/mongooseValidation");
+const {DEFAULT_STRING_SCHEMA, DEFAULT_STRING_SCHEMA_REQUIRED} = require("./helpers/mongooseValidation");
 
-const cardSchema = new mongoose.Schema({
-  title: DEFAULT_STRING_SCHEMA_REQUIRED,
-  subTitle: DEFAULT_STRING_SCHEMA_REQUIRED,
-  description: { ...DEFAULT_STRING_SCHEMA_REQUIRED, maxLength: 1024 },
+const itemSchema = new mongoose.Schema({
+  item: DEFAULT_STRING_SCHEMA_REQUIRED,
+  company: DEFAULT_STRING_SCHEMA_REQUIRED,
+  price:{
+    type: Number,
+    required: true,
+    trim: true,
+    minLength: 2,
+    default: 0
+  },
+  size: DEFAULT_STRING_SCHEMA,
+  location:DEFAULT_STRING_SCHEMA_REQUIRED,
+  contactName:DEFAULT_STRING_SCHEMA_REQUIRED,
   phone: {
     type: String,
     required: true,
@@ -23,9 +29,10 @@ const cardSchema = new mongoose.Schema({
     trim: true,
     //unique: true,
   },
-  web: URL,
   image: Image,
-  address: Address,
+
+
+  details: { ...DEFAULT_STRING_SCHEMA, maxLength: 1024 },
   bizNumber: {
     type: Number,
     minLength: 7,
@@ -43,6 +50,6 @@ const cardSchema = new mongoose.Schema({
   },
 });
 
-const Card = mongoose.model("cards", cardSchema);
+const Item = mongoose.model("items", itemSchema);
 
-module.exports = Card;
+module.exports = Item;

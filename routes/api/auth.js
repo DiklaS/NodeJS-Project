@@ -84,7 +84,7 @@ async (req, res) => {
 
 //4. GET USER
 router.get("/:id", authmw,
-permissionsMiddlewareUser(true, true),
+permissionsMiddlewareUser(true, false),
 async (req, res) => {
   try {
     await usersValidationService.userIdValidation(req.params.id);
@@ -119,7 +119,7 @@ async (req, res) => {
 
 //6. CHANGE ISBUSINESS STATUS
 router.patch("/:id", authmw, 
-permissionsMiddlewareUser(false, true),
+permissionsMiddlewareUser(true, true),
 async (req, res) => {
   try {
     await usersValidationService.userIdValidation(req.params.id);
