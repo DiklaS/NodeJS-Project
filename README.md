@@ -47,9 +47,29 @@ To start the Node.js server in a development environment with additional feature
 The server will start running and listen for incoming requests on the specified port.
 Access the server by opening a web browser and navigating to http://localhost:<port>, where <port> is the configured port number.  
 
+### Available Routes
+#### Users end points
+* Register User: POST http://localhost:8181/api/users/
+* Login: POST http://localhost:8181/api/users/login
+* Get all users: GET http://localhost:8181/api/users/ (for admin users only)
+* Get User: GET http://localhost:8181/api/users/:id (for the registered user or admin)
+* Edit User: PUT http://localhost:8181/api/users/:id (for the registered user)
+* Change business status: PATCH http://localhost:8181/api/users/:id (for the registered user)
+* Delete User: DELETE http://localhost:8181/api/users/:id (for the registered user or admin)
+
+#### Cards end points
+* Get all cards: GET http://localhost:8181/api/cards
+* Get my cards: GET http://localhost:8181/api/cards/my-cards (for the registered user)
+* Get Card: GET http://localhost:8181/api/cards/:id 
+* Create new card: POST http://localhost:8181/api/cards (for business users)
+* Edit Card: PUT http://localhost:8181/api/cards/:id (for the user who created the card)
+* Like Card: PATCH http://localhost:8181/api/cards/:id (for the the registered user)
+* Delete Card: DELETE http://localhost:8181/api/cards/:id (for the user who created the card or admin)
+* Change business number: PATCH http://localhost:8181/api/cards//bizNumber/:id (for admin)
+
 ### License
 This project is licensed under the MIT License.
 
 ### Created By
-This project was created by Dikla as part of Full Stack Development course.
+This project was created by Dikla Shaked as part of Full Stack Development course.
 

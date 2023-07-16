@@ -21,7 +21,7 @@ const updateUser = (id, userToUpdate) => {
   //normalize card
   return User.findByIdAndUpdate(id, userToUpdate, {
     new: true,
-  });
+  }).select(["-password", "-createdAt", "-__v"]);
 };
 
 const deleteUser = (id) => {
