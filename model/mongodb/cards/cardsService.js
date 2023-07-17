@@ -1,38 +1,38 @@
-const Card = require("./Card");
+const Item = require("./Item");
 
 const createCard = (cardToSave) => {
-  let card = new Card(cardToSave);
-  return card.save();
+  let item = new Item(cardToSave);
+  return item.save();
 };
 
 const getAllCards = () => {
-  return Card.find();
+  return Item.find();
 };
 
 const getMyCards = (userId) => {
-  return Card.find(userId);
+  return Item.find(userId);
 };
 
 const getCardById = (id) => {
-  return Card.findById(id);
+  return Item.findById(id);
 };
 
 const getCardByBizNumber = (bizNumber) => {
-  return Card.findOne({ bizNumber }, { bizNumber: 1, _id: 0 });
+  return Item.findOne({ bizNumber }, { bizNumber: 1, _id: 0 });
 };
 
 const updateCard = (id, cardToUpdate) => {
-  return Card.findByIdAndUpdate(id, cardToUpdate, {
+  return Item.findByIdAndUpdate(id, cardToUpdate, {
     new: true,
   });
 };
 
 const deleteCard = (id) => {
-  return Card.findByIdAndDelete(id);
+  return Item.findByIdAndDelete(id);
 };
 
 const changeBizCard = (bizId, bizNumberToUpdate) => {
-  return Card.findByIdAndUpdate(Number(bizId), bizNumberToUpdate)
+  return Item.findByIdAndUpdate(Number(bizId), bizNumberToUpdate)
 } 
 
 

@@ -1,44 +1,28 @@
 [
   {
-    "title": "card1",
-    "subTitle": "sub card 1",
-    "description": "save the card pls",
-    "phone": "0500000000",
-    "email": "kenny1@gmail.com",
-    "address": {
-      "country": "Israel",
-      "city": "Ashkeluna",
-      "street": "jump street",
-      "houseNumber": 23,
-      "zip": 0
+    "item": "Bikes",
+    "company": "Stumpjumper",
+    "price": 9500,
+    "size": "S2",
+    "location": "Pardes Hana",
+    "contactName": "Guy",
+    "phone": "0501111111",
+    "image": {
+      "url": "http://localhost:8181/initialData/imgs/bike-1.jpg",
+      "alt": "bike"
     }
   },
   {
-    "title": "card2",
-    "subTitle": "sub card 2",
-    "description": "save the card pls",
-    "phone": "0500000000",
-    "email": "kenny2@gmail.com",
-    "address": {
-      "country": "Israel",
-      "city": "Ashkeluna",
-      "street": "jump street",
-      "houseNumber": 23,
-      "zip": 0
-    }
-  },
-  {
-    "title": "card3",
-    "subTitle": "sub card 3",
-    "description": "save the card pls",
-    "phone": "0500000000",
-    "email": "kenny3@gmail.com",
-    "address": {
-      "country": "Israel",
-      "city": "Ashkeluna",
-      "street": "jump street",
-      "houseNumber": 23,
-      "zip": 0
+    "item": "Shoes",
+    "company": "Lake",
+    "price": 300,
+    "size": "44",
+    "location": "Modeen",
+    "contactName": "Tal",
+    "phone": "0502222222",
+    "image": {
+      "url": "http://localhost:8181/initialData/imgs/shoes-1.jpg",
+      "alt": "shoes"
     }
   }
 ]

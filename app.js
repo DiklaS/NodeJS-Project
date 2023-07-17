@@ -15,6 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/initialData", express.static(path.join(__dirname, "initialData")));
 initialData();
 app.use("/api", apiRouter);
 app.use((req, res, next) => {

@@ -19,7 +19,7 @@ const registerSchema = Joi.object({
   password: Joi.string()
     .regex(
       new RegExp(
-        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]{4})(?=.*[!@%$#^&*-_*]).{8,}$/
       )
     )
     .required(),
@@ -38,11 +38,11 @@ const registerSchema = Joi.object({
       city: Joi.string().min(2).max(256).required(),
       street: Joi.string().min(2).max(256).required(),
       houseNumber: Joi.number().min(1).required(),
-      zip: Joi.number().allow("", 0),
+      zip: Joi.number().allow(null).allow(''),
     })
     .required(),
-  isAdmin: Joi.boolean().allow(""),
-  isBusiness: Joi.boolean().required(),
+  isAdmin: Joi.boolean(),
+  
 });
 
 const validateRegisterSchema = (userInput) =>
