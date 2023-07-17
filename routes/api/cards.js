@@ -22,11 +22,22 @@ router.get("/my-cards", authmw,
 async (req, res) => {
   try {
     let user = req.userData;
-    if (!user.isBusiness) return res.status(403).json("Un authorize user!");
+    if (!user.isAdmin) return res.status(403).json("Un authorize user!");
     const cards = await cardsServiceModel.getMyCards({user_id: user._id});
     return res.send(cards);
   } catch (error) {
     return res.status(500).send(error.message);
+  }
+});
+
+router.get("/favorites/", authmw, async (req, res) => {
+  try {
+    let user = req.userData;
+    const favories = await cardsServiceModel.getMyCards({ likes: user._id });
+    res.json(favories);
+  } catch (err) {
+    console.log(chalk.redBright(err));
+    return res.status(500).send(err);
   }
 });
 
@@ -47,10 +58,12 @@ router.get("/:id", async (req, res) => {
 
 //4. CREATE NEW CARD
 router.post("/", authmw,
-permissionsMiddleware(true, false, false),
+permissionsMiddleware(false, true, false),
 async (req, res) => {
   try {
+    console.log('gggg')
     await cardsValidationService.createCardValidation(req.body);
+    
     let normalCard = await normalizeCard(req.body, req.userData._id);
     const newCard = await cardsServiceModel.createCard(normalCard);
     res.json(newCard);
@@ -61,7 +74,7 @@ async (req, res) => {
 
 //5. EDIT CARD
 router.put("/:id", authmw,
-permissionsMiddleware(false, false, true),
+permissionsMiddleware(false, true, false),
 async (req, res) => {
   try {
     await cardsValidationService.cardIdValidation(req.params.id);
@@ -134,5 +147,7 @@ async (req, res) => {
     return res.status(500).send(error.message);
   }
 });
+
+
 
 module.exports = router;
