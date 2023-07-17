@@ -1,15 +1,15 @@
 const _ = require("lodash");
-const Item = require("../Item");
+const Card = require("../Card");
 
 const generateBizNumber = async () => {
   try {
     for (let i = 1000000; i <= 9999999; i++) {
       const randomNumber = _.random(1000000, 9999999);
-      let item = await Item.findOne(
+      let card = await Card.findOne(
         { bizNumber: randomNumber },
         { bizNumber: 1, _id: 0 }
       );
-      if (!item) {
+      if (!card) {
         return randomNumber;
       }
     }
@@ -18,5 +18,4 @@ const generateBizNumber = async () => {
     return Promise.reject(err);
   }
 };
-
 module.exports = generateBizNumber;

@@ -9,7 +9,7 @@ const loginSchema = Joi.object({
   password: Joi.string()
     .regex(
       new RegExp(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]{4})(?=.*[!@%$#^&*-_*]).{8,}$/
+        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
       )
     )
     .required(),

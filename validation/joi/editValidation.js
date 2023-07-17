@@ -31,11 +31,11 @@ const editSchema = Joi.object({
       city: Joi.string().min(2).max(256).required(),
       street: Joi.string().min(2).max(256).required(),
       houseNumber: Joi.number().min(1).required(),
-      zip: Joi.number().label("Zip").allow(null).allow(''),
+      zip: Joi.number().allow("", 0),
     })
     .required(),
-  isAdmin: Joi.boolean(),
-  //isBusiness: Joi.boolean().required(),
+  isAdmin: Joi.boolean().allow(""),
+  isBusiness: Joi.boolean().required(),
 });
 
 const validateEditSchema = (userInput) =>
